@@ -1,8 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "player.h"
+#include "game.h"
+#include "raylib.h"
+
+
 
 int main()
 {
-    printf("Hello world!\n");
-    return 0;
+    InicializaTudo();
+
+    while (!WindowShouldClose()) {
+
+        DesenhaTudo();
+    }
+
+    CloseWindow();
 }
