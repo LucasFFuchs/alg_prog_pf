@@ -1,11 +1,12 @@
 #ifndef PLAYER_H_INCLUDED
 #define PLAYER_H_INCLUDED
+#include "raylib.h"
 
 typedef struct {
-    int posx, posy;
+    float posx, posy;
     float speed;
     int fuel_quantity;
-    char teste;
+    Texture2D sprite;
 
 }PLAYER;
 

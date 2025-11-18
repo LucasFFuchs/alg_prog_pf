@@ -1,9 +1,11 @@
 #ifndef GAME_H_INCLUDED
 #define GAME_H_INCLUDED
 
-void InicializaTudo();
+void InitGame();
 
-void DesenhaTudo();
+void DrawGame();
+
+void UpdateGame();
 
 
 

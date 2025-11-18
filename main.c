@@ -4,16 +4,19 @@
 #include "game.h"
 #include "raylib.h"
 
-
+extern PLAYER jogador;
 
 int main()
 {
-    InicializaTudo();
+    InitGame();
 
     while (!WindowShouldClose()) {
 
-        DesenhaTudo();
+        DrawGame();
+        UpdateGame();
     }
+
+    UnloadTexture(jogador.sprite);
 
     CloseWindow();
 }
