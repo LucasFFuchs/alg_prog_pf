@@ -57,18 +57,19 @@
 	"projectile.h"
 	"game.h"
 
-1763565580 source:c:\users\edu_d\alg_prog_pf\game.c
+1763569641 source:c:\users\edu_d\alg_prog_pf\game.c
 	"game.h"
 	"player.h"
 	"projectile.h"
 	"raylib.h"
 
-1763565580 c:\users\edu_d\alg_prog_pf\game.h
+1763569241 c:\users\edu_d\alg_prog_pf\game.h
+	"projectile.h"
 
 1763565580 c:\users\edu_d\alg_prog_pf\player.h
 	"raylib.h"
 
-1763565580 c:\users\edu_d\alg_prog_pf\projectile.h
+1763569641 c:\users\edu_d\alg_prog_pf\projectile.h
 	"player.h"
 
 1763565580 source:c:\users\edu_d\alg_prog_pf\main.c
@@ -80,11 +81,12 @@
 
 1763565580 source:c:\users\edu_d\alg_prog_pf\mapa.c
 
-1763566522 source:c:\users\edu_d\alg_prog_pf\player.c
+1763569669 source:c:\users\edu_d\alg_prog_pf\player.c
 	"player.h"
 	"raylib.h"
+	"projectile.h"
 
-1763566522 source:c:\users\edu_d\alg_prog_pf\projectile.c
+1763569729 source:c:\users\edu_d\alg_prog_pf\projectile.c
 	"raylib.h"
 	"projectile.h"
 	"game.h"

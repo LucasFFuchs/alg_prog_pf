@@ -11,13 +11,11 @@ typedef struct {
     Texture2D sprite;
 }PROJECTILE;
 
-void InitProjectile(PROJECTILE *pj,PROJECTILE list_projectile[], PLAYER p);
+void InitProjectile(float x, float y);
 
-void RemoveProjectile(PROJECTILE list_projectile[]);
+void DrawProjectile();
 
-void DrawProjectile(PROJECTILE pj);
-
-void UpdateProjectile(PROJECTILE *pj);
+void UpdateProjectile();
 
 
 #endif // PROJECTILE_H_INCLUDED

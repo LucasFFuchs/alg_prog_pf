@@ -1,6 +1,6 @@
 #include "player.h"
 #include "raylib.h"
-//#include <stdio.h>
+#include "projectile.h"
 
 //Declaração da lista a ser armazenadas os sprites do aviao
 Texture2D sprite_list[3];
@@ -43,6 +43,10 @@ void UpdatePlayer(PLAYER *p){
 
     //Move o player para direita ou esquerda(na mesma velocidade, independente do FPS), dependendo se o input_user é positivo ou negativo
     p -> posx += p -> speed * input_user * dt;
+
+    if((IsKeyPressed(KEY_SPACE))){
+        InitProjectile(p -> posx, p -> posy);
+    }
 
 }
 

@@ -2,37 +2,40 @@
 #include "projectile.h"
 #include "game.h"
 
-void InitProjectile(PROJECTILE *pj, PROJECTILE list_projectile[], PLAYER p){
-    pj -> is_active = true;
-    pj -> speed = 400;
-    pj -> sprite = LoadTexture("images/projectile.png");
-    pj -> posy = p.posy - 30;
-    pj -> posx = p.posx + 20 - (pj -> sprite).width/2;
+void InitProjectile(float x, float y){
+    PROJECTILE pj;
+    pj.is_active = true;
+    pj.speed = 400;
+    pj.sprite = LoadTexture("images/projectile.png");
+    pj.posy = y - 30;
+    pj.posx = x + 20 - (pj.sprite).width/2;
     for(int i = 0; i < MAXPROJECTILE; i++){
         if(list_projectile[i].is_active == false){
-            list_projectile[i] = *pj;
+            list_projectile[i] = pj;
             break;
         }
     }
 }
 
-void RemoveProjectile(PROJECTILE list_projectile[]){
+void DrawProjectile(){
+    for(int i = 0; i < MAXPROJECTILE; i++)
+        if(list_projectile[i].is_active){
+            Vector2 pos = { list_projectile[i].posx, list_projectile[i].posy };
+            DrawTextureEx(list_projectile[i].sprite, pos, 0, 1, WHITE);
+        };
+}
+
+void UpdateProjectile(){
     for(int i = 0; i < MAXPROJECTILE; i++){
+        if(list_projectile[i].is_active){
+            float dt = GetFrameTime();
+            list_projectile[i].posy -= list_projectile[i].speed  * dt;
+        }
         if(list_projectile[i].posy <= -list_projectile[i].sprite.height){
             list_projectile[i].is_active = false;
         }
-
     }
-}
 
-void DrawProjectile(PROJECTILE pj){
-    Vector2 pos = { pj.posx, pj.posy };
-    DrawTextureEx(pj.sprite, pos, 0, 1, WHITE);
-}
-
-void UpdateProjectile(PROJECTILE *pj){
-    float dt = GetFrameTime();
-    pj -> posy -= pj -> speed  * dt;
 
 }
 
