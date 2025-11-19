@@ -3,16 +3,15 @@
 #include "game.h"
 
 void InitProjectile(PROJECTILE *pj, PROJECTILE list_projectile[], PLAYER p){
-    int flag = 0;
     pj -> is_active = true;
     pj -> speed = 400;
     pj -> sprite = LoadTexture("images/projectile.png");
     pj -> posy = p.posy - 30;
     pj -> posx = p.posx + 20 - (pj -> sprite).width/2;
     for(int i = 0; i < MAXPROJECTILE; i++){
-        if(list_projectile[i].is_active == false && flag == 0){
+        if(list_projectile[i].is_active == false){
             list_projectile[i] = *pj;
-            flag++;
+            break;
         }
     }
 }

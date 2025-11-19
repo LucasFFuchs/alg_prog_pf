@@ -57,3 +57,30 @@
 	"projectile.h"
 	"game.h"
 
+1763565580 source:c:\users\edu_d\alg_prog_pf\game.c
+	"game.h"
+	"player.h"
+	"projectile.h"
+	"raylib.h"
+
+1763565580 c:\users\edu_d\alg_prog_pf\game.h
+
+1763565580 c:\users\edu_d\alg_prog_pf\player.h
+	"raylib.h"
+
+1763565580 c:\users\edu_d\alg_prog_pf\projectile.h
+	"player.h"
+
+1763565580 source:c:\users\edu_d\alg_prog_pf\main.c
+	<stdio.h>
+	<stdlib.h>
+	"player.h"
+	"game.h"
+	"raylib.h"
+
+1763565580 source:c:\users\edu_d\alg_prog_pf\mapa.c
+
+1763566522 source:c:\users\edu_d\alg_prog_pf\player.c
+	"player.h"
+	"raylib.h"
+
