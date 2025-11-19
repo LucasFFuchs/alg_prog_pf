@@ -37,7 +37,7 @@ void DrawGame(){
     DrawPlayer(jogador);
     for(int i = 0; i < MAXPROJECTILE; i++){
         if(list_projectile[i].is_active == true){
-            DrawProjectile(&list_projectile[i]);
+            DrawProjectile(list_projectile[i]);
         }
 
     }

@@ -84,3 +84,8 @@
 	"player.h"
 	"raylib.h"
 
+1763566522 source:c:\users\edu_d\alg_prog_pf\projectile.c
+	"raylib.h"
+	"projectile.h"
+	"game.h"
+

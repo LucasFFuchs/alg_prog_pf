@@ -25,9 +25,9 @@ void RemoveProjectile(PROJECTILE list_projectile[]){
     }
 }
 
-void DrawProjectile(PROJECTILE *pj){
-    Vector2 pos = { pj -> posx, pj -> posy };
-    DrawTextureEx(pj -> sprite, pos, 0, 1, WHITE);
+void DrawProjectile(PROJECTILE pj){
+    Vector2 pos = { pj.posx, pj.posy };
+    DrawTextureEx(pj.sprite, pos, 0, 1, WHITE);
 }
 
 void UpdateProjectile(PROJECTILE *pj){

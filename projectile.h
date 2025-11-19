@@ -15,7 +15,7 @@ void InitProjectile(PROJECTILE *pj,PROJECTILE list_projectile[], PLAYER p);
 
 void RemoveProjectile(PROJECTILE list_projectile[]);
 
-void DrawProjectile(PROJECTILE *pj);
+void DrawProjectile(PROJECTILE pj);
 
 void UpdateProjectile(PROJECTILE *pj);
 
