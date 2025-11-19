@@ -6,6 +6,7 @@ typedef struct {
     float posx, posy;
     int pontos;
     bool is_active;
+    Texture2D sprite;
 
 }ENEMY;
 
