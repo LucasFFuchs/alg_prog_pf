@@ -25,13 +25,13 @@
 	"player.h"
 	"raylib.h"
 
-1763428777 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\game.c
+1763512964 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\game.c
 	"game.h"
 	"player.h"
 	"projectile.h"
 	"raylib.h"
 
-1763424324 c:\users\admin\desktop\faculdade\c\alg_prog_pf\game.h
+1763512979 c:\users\admin\desktop\faculdade\c\alg_prog_pf\game.h
 
 1763424324 c:\users\admin\desktop\faculdade\c\alg_prog_pf\player.h
 	"raylib.h"
@@ -49,10 +49,11 @@
 	"player.h"
 	"raylib.h"
 
-1763428815 c:\users\admin\desktop\faculdade\c\alg_prog_pf\projectile.h
+1763512927 c:\users\admin\desktop\faculdade\c\alg_prog_pf\projectile.h
 	"player.h"
 
-1763429192 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\projectile.c
+1763512896 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\projectile.c
 	"raylib.h"
 	"projectile.h"
+	"game.h"
 
