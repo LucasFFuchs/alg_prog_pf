@@ -1,8 +1,22 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "player.h"
+#include "game.h"
+#include "raylib.h"
+
+extern PLAYER jogador;
 
 int main()
 {
-    printf("Hello world!\n");
-    return 0;
+    InitGame();
+
+    while (!WindowShouldClose()) {
+
+        DrawGame();
+        UpdateGame();
+    }
+
+    UnloadTexture(jogador.sprite);
+
+    CloseWindow();
 }

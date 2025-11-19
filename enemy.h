@@ -1,0 +1,6 @@
+#ifndef ENEMY_H_INCLUDED
+#define ENEMY_H_INCLUDED
+
+
+
+#endif // ENEMY_H_INCLUDED

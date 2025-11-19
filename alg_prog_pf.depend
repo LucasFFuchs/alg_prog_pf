@@ -1,0 +1,59 @@
+# depslib dependency file v1.0
+1762978239 source:c:\users\admin\desktop\faculdade\c\projeto final\river_raid\alg_prog_pf\mapa.c
+
+1762990627 source:c:\users\admin\desktop\faculdade\c\projeto final\river_raid\alg_prog_pf\main.c
+	<stdio.h>
+	<stdlib.h>
+	"player.h"
+	"game.h"
+	"raylib.h"
+
+1762983764 c:\users\admin\desktop\faculdade\c\projeto final\river_raid\alg_prog_pf\player.h
+
+1762982412 c:\users\admin\desktop\faculdade\c\projeto final\river_raid\alg_prog_pf\player.c
+	"player.h"
+	"raylib.h"
+
+1762990427 source:c:\users\admin\desktop\faculdade\c\projeto final\river_raid\alg_prog_pf\player.c
+	"player.h"
+	"raylib.h"
+
+1762984003 c:\users\admin\desktop\faculdade\c\projeto final\river_raid\alg_prog_pf\game.h
+
+1762983985 source:c:\users\admin\desktop\faculdade\c\projeto final\river_raid\alg_prog_pf\game.c
+	"game.h"
+	"player.h"
+	"raylib.h"
+
+1763512964 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\game.c
+	"game.h"
+	"player.h"
+	"projectile.h"
+	"raylib.h"
+
+1763512979 c:\users\admin\desktop\faculdade\c\alg_prog_pf\game.h
+
+1763424324 c:\users\admin\desktop\faculdade\c\alg_prog_pf\player.h
+	"raylib.h"
+
+1762978239 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\mapa.c
+
+1763424324 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\main.c
+	<stdio.h>
+	<stdlib.h>
+	"player.h"
+	"game.h"
+	"raylib.h"
+
+1763428682 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\player.c
+	"player.h"
+	"raylib.h"
+
+1763512927 c:\users\admin\desktop\faculdade\c\alg_prog_pf\projectile.h
+	"player.h"
+
+1763512896 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\projectile.c
+	"raylib.h"
+	"projectile.h"
+	"game.h"
+
