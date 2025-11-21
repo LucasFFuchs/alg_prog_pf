@@ -5,7 +5,7 @@
 typedef struct {
     float posx, posy;
     float speed;
-    int fuel_quantity;
+
     Texture2D sprite;
 
 }PLAYER;

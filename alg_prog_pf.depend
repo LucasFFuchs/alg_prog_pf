@@ -25,34 +25,38 @@
 	"player.h"
 	"raylib.h"
 
-1763512964 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\game.c
+1763688114 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\game.c
 	"game.h"
 	"player.h"
 	"projectile.h"
+	"stats.h"
 	"raylib.h"
 
-1763512979 c:\users\admin\desktop\faculdade\c\alg_prog_pf\game.h
+1763687397 c:\users\admin\desktop\faculdade\c\alg_prog_pf\game.h
+	"projectile.h"
 
-1763424324 c:\users\admin\desktop\faculdade\c\alg_prog_pf\player.h
+1763688319 c:\users\admin\desktop\faculdade\c\alg_prog_pf\player.h
 	"raylib.h"
 
-1762978239 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\mapa.c
+1763577968 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\mapa.c
 
-1763424324 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\main.c
+1763579381 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\main.c
 	<stdio.h>
 	<stdlib.h>
 	"player.h"
 	"game.h"
 	"raylib.h"
 
-1763428682 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\player.c
+1763688408 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\player.c
 	"player.h"
 	"raylib.h"
+	"projectile.h"
+	"game.h"
 
-1763512927 c:\users\admin\desktop\faculdade\c\alg_prog_pf\projectile.h
+1763578143 c:\users\admin\desktop\faculdade\c\alg_prog_pf\projectile.h
 	"player.h"
 
-1763512896 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\projectile.c
+1763580263 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\projectile.c
 	"raylib.h"
 	"projectile.h"
 	"game.h"
@@ -89,5 +93,18 @@
 1763569729 source:c:\users\edu_d\alg_prog_pf\projectile.c
 	"raylib.h"
 	"projectile.h"
+	"game.h"
+
+1763687397 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\menu.c
+	"raylib.h"
+	"menu.h"
+
+1763588653 c:\users\admin\desktop\faculdade\c\alg_prog_pf\menu.h
+
+1763688401 c:\users\admin\desktop\faculdade\c\alg_prog_pf\stats.h
+
+1763688519 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\stats.c
+	"raylib.h"
+	"stats.h"
 	"game.h"
 

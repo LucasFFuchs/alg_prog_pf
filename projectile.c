@@ -31,7 +31,7 @@ void UpdateProjectile(){
             float dt = GetFrameTime();
             list_projectile[i].posy -= list_projectile[i].speed  * dt;
         }
-        if(list_projectile[i].posy <= -list_projectile[i].sprite.height){
+        if(list_projectile[i].posy <= 80 ){
             list_projectile[i].is_active = false;
         }
     }

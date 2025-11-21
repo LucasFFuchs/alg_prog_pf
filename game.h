@@ -2,9 +2,11 @@
 #define GAME_H_INCLUDED
 
 #include "projectile.h"
-#define MAXPROJECTILE 5
+#define MAXPROJECTILE 8
+#define SCREEN_WIDTH 24 * 40
+#define SCREEN_HEIGHT 22 * 40
 
-
+extern int pause;
 extern PROJECTILE list_projectile[MAXPROJECTILE];
 
 
@@ -14,6 +16,7 @@ void DrawGame();
 
 void UpdateGame();
 
+void ShowHud();
 
 
 

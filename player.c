@@ -1,6 +1,7 @@
 #include "player.h"
 #include "raylib.h"
 #include "projectile.h"
+#include "game.h"
 
 //Declaração da lista a ser armazenadas os sprites do aviao
 Texture2D sprite_list[3];
@@ -10,8 +11,7 @@ void InitPlayer(PLAYER *p){
     //Inicia a estrutura do nosso jogador com suas variaveis padroes
     p -> posy = 800;
     p -> posx = 400;
-    p -> speed = 250;
-    p -> fuel_quantity = 100;
+    p -> speed = 500;
 
     //Inicia o aviao com a sprite dele parado
     p -> sprite = LoadTexture("images/aviao2.png");
@@ -26,6 +26,8 @@ void DrawPlayer(PLAYER p){
     Vector2 pos = { p.posx, p.posy };
 
     DrawTextureEx(p.sprite, pos, 0, 1, WHITE);
+    if(IsKeyPressed(KEY_ENTER))
+        pause = !pause;
 
 }
 
@@ -44,9 +46,14 @@ void UpdatePlayer(PLAYER *p){
     //Move o player para direita ou esquerda(na mesma velocidade, independente do FPS), dependendo se o input_user é positivo ou negativo
     p -> posx += p -> speed * input_user * dt;
 
-    if((IsKeyPressed(KEY_SPACE))){
+
+
+    if(IsKeyPressed(KEY_SPACE ) || IsKeyPressed(KEY_K)){
         InitProjectile(p -> posx, p -> posy);
     }
-
+    if(p -> posx < -(p -> sprite).width)
+        p -> posx = SCREEN_WIDTH;
+    if(p -> posx > SCREEN_WIDTH)
+        p -> posx = -(p -> sprite).width;
 }
 
