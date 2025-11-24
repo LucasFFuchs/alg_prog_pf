@@ -62,6 +62,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="mapa.h" />
+		<Unit filename="menu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="menu.h" />
 		<Unit filename="player.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -70,18 +74,14 @@
 		</Unit>
 		<Unit filename="projectile.c">
 			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="projectile.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
-		<Unit filename="rest.c">
+		<Unit filename="stats.c">
 			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
-		<Unit filename="rest.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
+		<Unit filename="stats.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

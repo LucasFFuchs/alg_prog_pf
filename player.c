@@ -11,7 +11,12 @@ void InitPlayer(PLAYER *p){
     //Inicia a estrutura do nosso jogador com suas variaveis padroes
     p -> posy = 800;
     p -> posx = 400;
-    p -> speed = 500;
+    p -> speed = 390;
+
+    p -> points = 0;
+    p -> level = 1;
+    p -> fuel_quantity = 100;
+    p -> lives = 3;
 
     //Inicia o aviao com a sprite dele parado
     p -> sprite = LoadTexture("images/aviao2.png");
@@ -22,13 +27,21 @@ void InitPlayer(PLAYER *p){
     sprite_list[2] = LoadTexture("images/aviao3.png");
 }
 
+
+void ShowHud(PLAYER p){
+    DrawRectangle(0, 0, SCREEN_WIDTH, 80, GRAY);
+    DrawText(TextFormat("Pontos: %d", p.points), 30, 25, 35, BLACK);
+    DrawText(TextFormat("Nivel: %d", p.level), 260, 25, 35, BLACK);
+    DrawText(TextFormat("Vidas: %d", p.lives), 440, 25, 35, BLACK);
+    DrawText(TextFormat("Gasolina: %d", p.fuel_quantity), 650, 25, 35, BLACK);
+}
+
+
+
 void DrawPlayer(PLAYER p){
     Vector2 pos = { p.posx, p.posy };
 
     DrawTextureEx(p.sprite, pos, 0, 1, WHITE);
-    if(IsKeyPressed(KEY_ENTER))
-        pause = !pause;
-
 }
 
 void UpdatePlayer(PLAYER *p){

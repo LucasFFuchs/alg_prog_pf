@@ -5,12 +5,15 @@
 typedef struct {
     float posx, posy;
     float speed;
+    int lives, points, level, fuel_quantity;
 
     Texture2D sprite;
 
 }PLAYER;
 
 void InitPlayer(PLAYER *p);
+
+void ShowHud(PLAYER p);
 
 void DrawPlayer(PLAYER p);
 

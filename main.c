@@ -9,15 +9,5 @@ extern PLAYER jogador;
 
 int main()
 {
-    InitGame();
-
-    while (!WindowShouldClose()) {
-        DrawGame();
-        UpdateGame();
-
-    }
-
-    UnloadTexture(jogador.sprite);
-
-    CloseWindow();
+    LoadGame();
 }

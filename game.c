@@ -2,6 +2,7 @@
 #include "player.h"
 #include "projectile.h"
 #include "stats.h"
+#include "button.h"
 #include "raylib.h"
 
 
@@ -15,7 +16,6 @@ Color background_color = { 45, 50, 184, 255 };
 Color pause_color = {80, 80, 90, 200};
 PROJECTILE list_projectile[MAXPROJECTILE] = {0};
 int pause = 0;
-STATS s;
 
 
 void InitGame(){
@@ -25,10 +25,14 @@ void InitGame(){
     SetTargetFPS(60);
 
     InitPlayer(&jogador);
-    InitStats(&s);
 
+}
 
-
+void DrawPause(){
+    if(IsKeyPressed(KEY_ENTER))
+        pause = !pause;
+    if(pause)
+        DrawRectangle(50, 90, SCREEN_WIDTH - 100, SCREEN_HEIGHT - 160, pause_color);
 }
 
 void DrawGame(){
@@ -40,10 +44,13 @@ void DrawGame(){
 
     DrawPlayer(jogador);
     DrawProjectile();
-    ShowHud(s);
+    ShowHud(jogador);
 
-    if(pause)
-        DrawRectangle(50, 90, SCREEN_WIDTH - 100, SCREEN_HEIGHT - 160, pause_color);
+    DrawPause();
+
+
+
+
 
 
     EndDrawing();
@@ -55,5 +62,21 @@ void UpdateGame(){
         UpdateProjectile();
 
     }
+}
+
+void LoadGame(){
+
+    InitGame();
+
+    while (!WindowShouldClose()) {
+        DrawGame();
+        UpdateGame();
+
+    }
+
+    UnloadTexture(jogador.sprite);
+
+    CloseWindow();
+
 }
 
