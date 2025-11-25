@@ -3,9 +3,14 @@
 
 #include "game.h"
 
-extern int menu_option;
+extern int game_estate;
+extern BUTTON lista_botoes[4];
+
+void InitMenu();
 
 void DrawMenu();
+
+void UpdateMenu();
 
 
 #endif // MENU_H_INCLUDED

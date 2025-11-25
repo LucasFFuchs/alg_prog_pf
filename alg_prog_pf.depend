@@ -25,15 +25,16 @@
 	"player.h"
 	"raylib.h"
 
-1763946977 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\game.c
+1764017039 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\game.c
 	"game.h"
 	"player.h"
 	"projectile.h"
-	"stats.h"
 	"button.h"
+	"menu.h"
 	"raylib.h"
+	<stdio.h>
 
-1763946656 c:\users\admin\desktop\faculdade\c\alg_prog_pf\game.h
+1764013136 c:\users\admin\desktop\faculdade\c\alg_prog_pf\game.h
 	"projectile.h"
 	"button.h"
 
@@ -42,7 +43,7 @@
 
 1763577968 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\mapa.c
 
-1763775812 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\main.c
+1764006436 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\main.c
 	<stdio.h>
 	<stdlib.h>
 	"player.h"
@@ -97,11 +98,12 @@
 	"projectile.h"
 	"game.h"
 
-1763946709 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\menu.c
+1764006654 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\menu.c
 	"raylib.h"
 	"menu.h"
+	"button.h"
 
-1763777047 c:\users\admin\desktop\faculdade\c\alg_prog_pf\menu.h
+1764006601 c:\users\admin\desktop\faculdade\c\alg_prog_pf\menu.h
 	"game.h"
 
 1763947005 c:\users\admin\desktop\faculdade\c\alg_prog_pf\stats.h
@@ -111,6 +113,12 @@
 	"stats.h"
 	"game.h"
 
-1763776867 c:\users\admin\desktop\faculdade\c\alg_prog_pf\button.h
+1764006606 c:\users\admin\desktop\faculdade\c\alg_prog_pf\button.h
 	"raylib.h"
+
+1764007898 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\button.c
+	<string.h>
+	"raylib.h"
+	"button.h"
+	"menu.h"
 

@@ -4,10 +4,9 @@
 #include "game.h"
 #include "raylib.h"
 
-extern PLAYER jogador;
 
 
 int main()
 {
-    LoadGame();
+    MainCourse();
 }

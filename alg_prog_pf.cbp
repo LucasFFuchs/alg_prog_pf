@@ -35,6 +35,10 @@
 		<Linker>
 			<Add directory="C:/raylib/w64devkit/lib" />
 		</Linker>
+		<Unit filename="button.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="button.h" />
 		<Unit filename="enemy.c">
 			<Option compilerVar="CC" />
 			<Option target="&lt;{~None~}&gt;" />
@@ -78,10 +82,6 @@
 		<Unit filename="projectile.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
-		<Unit filename="stats.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="stats.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

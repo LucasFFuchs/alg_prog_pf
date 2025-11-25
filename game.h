@@ -10,8 +10,9 @@
 
 extern int pause;
 extern PROJECTILE list_projectile[MAXPROJECTILE];
-extern BUTTON lista_botoes[4];
+//extern BUTTON lista_botoes[4];
 
+void MainCourse();
 
 void DrawPause();
 
@@ -20,9 +21,6 @@ void InitGame();
 void DrawGame();
 
 void UpdateGame();
-
-void LoadGame();
-
 
 
 #endif // GAME_H_INCLUDED
