@@ -3,14 +3,21 @@
 
 #include "projectile.h"
 #include "button.h"
+#include "enemy.h"
+#include <stdio.h>
 
 #define MAXPROJECTILE 8
+#define MAXENEMY 10
+
 #define SCREEN_WIDTH 24 * 40
 #define SCREEN_HEIGHT 22 * 40
+#define TAM 40
 
 extern int pause;
 extern PROJECTILE list_projectile[MAXPROJECTILE];
-//extern BUTTON lista_botoes[4];
+extern ENEMY lista_enemy[MAXENEMY];
+
+
 
 void MainCourse();
 

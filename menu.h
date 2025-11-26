@@ -6,6 +6,8 @@
 extern int game_estate;
 extern BUTTON lista_botoes[4];
 
+void HomeScreen();
+
 void InitMenu();
 
 void DrawMenu();

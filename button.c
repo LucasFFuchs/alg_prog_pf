@@ -14,6 +14,7 @@ BUTTON InitButton(int posx, int posy, int font_size, char text[], int option){
     b.color = YELLOW;
     strcpy(b.text, text);
     b.option = option;
+    b.hover = false;
 
     return b;
 }
@@ -30,19 +31,18 @@ void DrawButton(BUTTON lista_botoes[]){
     BUTTON b;
     for(int i = 0; i < 4; i++){
         b = lista_botoes[i];
-        DrawText(TextFormat("%s", b.text), b.posx, b.posy, b.font_size, YELLOW);
+        DrawText(TextFormat("%s", b.text), b.posx, b.posy, b.font_size, b.color);
     }
 
 }
 
-void UpdateButton(Color cor, BUTTON *b){
-    b -> color = cor;
+void UpdateButton(Color mudar_cor, BUTTON *b){
+    b -> color = mudar_cor;
 }
 
 void SelectedButton(BUTTON lista_botoes[]){
     Vector2 pos;
     Rectangle rect;
-    BUTTON b;
     pos = GetMousePosition();
 
     for(int i = 0; i < 4; i++){
@@ -52,11 +52,15 @@ void SelectedButton(BUTTON lista_botoes[]){
                            lista_botoes[i].height};
 
         if(CheckCollisionPointRec(pos, rect)){
-            UpdateButton(GREEN, &lista_botoes[i]);
+            UpdateButton(GOLD, &lista_botoes[i]);
+            lista_botoes[i]. hover = true;
             if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
                 game_estate = lista_botoes[i].option;
         }
-
+        else if(lista_botoes[i].hover){
+            UpdateButton(YELLOW, &lista_botoes[i]);
+            lista_botoes[i].hover = false;
+        }
     }
 
 }

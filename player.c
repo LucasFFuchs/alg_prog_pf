@@ -29,6 +29,7 @@ void InitPlayer(PLAYER *p){
 
 
 void ShowHud(PLAYER p){
+    //Desenha o HUD em cima com 80 pixels de altura e apresenta as variaveis points, level, lives e fuel_quantity do player
     DrawRectangle(0, 0, SCREEN_WIDTH, 80, GRAY);
     DrawText(TextFormat("Pontos: %d", p.points), 30, 25, 35, BLACK);
     DrawText(TextFormat("Nivel: %d", p.level), 260, 25, 35, BLACK);
@@ -39,15 +40,14 @@ void ShowHud(PLAYER p){
 
 
 void DrawPlayer(PLAYER p){
+    //Cria variavel com as posições do player
     Vector2 pos = { p.posx, p.posy };
 
+    //Desenha o sprite do player
     DrawTextureEx(p.sprite, pos, 0, 1, WHITE);
 }
 
-void UpdatePlayer(PLAYER *p){
-    //Declara a variavel dt, variavel reponsavel por manter uma padronização de velocidade independente de FPS no jogo
-    float dt = GetFrameTime();
-
+void UpdatePlayer(PLAYER *p, float dt){
 
     //Declara a variavel que controla se o player esta indo para direita ou esquerda -> -1 para esquerda, 0 parado, 1 para direita
     int input_user = (IsKeyDown(KEY_RIGHT) || IsKeyDown(KEY_D))
@@ -60,7 +60,7 @@ void UpdatePlayer(PLAYER *p){
     p -> posx += p -> speed * input_user * dt;
 
 
-
+    //Quando espaço ou K é apertado, inicia um projetil com a função InitProjectile nas posições do player
     if(IsKeyPressed(KEY_SPACE ) || IsKeyPressed(KEY_K)){
         InitProjectile(p -> posx, p -> posy);
     }

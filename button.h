@@ -9,6 +9,7 @@ typedef struct {
     int width, height;
     int option;
     char text[30];
+    bool hover;
     Color color;
 }BUTTON;
 
@@ -18,7 +19,7 @@ void LoadButtons(BUTTON lista_botoes[]);
 
 void DrawButton(BUTTON lista_botoes[]);
 
-void UpdateButton(Color color, BUTTON *b);
+void UpdateButton(Color mudar_cor, BUTTON *b);
 
 void SelectedButton(BUTTON lista_botoes[]);
 

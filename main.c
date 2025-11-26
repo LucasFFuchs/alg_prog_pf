@@ -5,7 +5,7 @@
 #include "raylib.h"
 
 
-
+//Apenas começa jogo
 int main()
 {
     MainCourse();

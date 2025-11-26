@@ -25,10 +25,9 @@ void DrawProjectile(){
         };
 }
 
-void UpdateProjectile(){
+void UpdateProjectile(float dt){
     for(int i = 0; i < MAXPROJECTILE; i++){
         if(list_projectile[i].is_active){
-            float dt = GetFrameTime();
             list_projectile[i].posy -= list_projectile[i].speed  * dt;
         }
         if(list_projectile[i].posy <= 80 ){

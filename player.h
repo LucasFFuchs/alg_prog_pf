@@ -17,7 +17,7 @@ void ShowHud(PLAYER p);
 
 void DrawPlayer(PLAYER p);
 
-void UpdatePlayer(PLAYER *P);
+void UpdatePlayer(PLAYER *P, float dt);
 
 
 

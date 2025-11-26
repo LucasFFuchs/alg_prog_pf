@@ -15,7 +15,7 @@ void InitProjectile(float x, float y);
 
 void DrawProjectile();
 
-void UpdateProjectile();
+void UpdateProjectile(float dt);
 
 
 #endif // PROJECTILE_H_INCLUDED
