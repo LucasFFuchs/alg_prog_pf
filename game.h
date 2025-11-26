@@ -8,6 +8,7 @@
 
 #define MAXPROJECTILE 8
 #define MAXENEMY 10
+#define MAX_ENEMY_SPRTES 3
 
 #define SCREEN_WIDTH 24 * 40
 #define SCREEN_HEIGHT 22 * 40
@@ -16,6 +17,7 @@
 extern int pause;
 extern PROJECTILE list_projectile[MAXPROJECTILE];
 extern ENEMY lista_enemy[MAXENEMY];
+extern Texture2D lista_sprite_enemy[MAX_ENEMY_SPRTES];
 
 
 

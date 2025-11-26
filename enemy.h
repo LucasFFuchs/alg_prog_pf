@@ -11,8 +11,9 @@ typedef struct {
     Texture2D sprite;
 
 }ENEMY;
+void InitSpriteEnemy();
 
-void InitEnemy();
+void InitEnemy(float x, float y, char t);
 
 void DrawEnemy();
 

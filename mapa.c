@@ -4,6 +4,7 @@
 #include <stdio.h>
 
 FILE *lista_mapas[11] = {0};
+int flag = 0;
 
 void InitMaps(){
     lista_mapas[0] = fopen("mapas/fase1.txt", "r");
@@ -38,7 +39,10 @@ void DrawMap(FILE *arq_map){
         }else if(c == ' '){
             x += TAM;
         }else if(c == 'X' || c == 'N'){
-            DrawRectangle(x, y, TAM, TAM, ORANGE);
+            if(!flag){
+                InitEnemy(x, y, c);
+                printf("------------------------------------------\n");
+            }
             x += TAM;
         }else if(c == 'A'){
             DrawRectangle(x, y, TAM, TAM, YELLOW);
@@ -48,4 +52,5 @@ void DrawMap(FILE *arq_map){
             x = 0;
         }
     }
+    flag++;
 }

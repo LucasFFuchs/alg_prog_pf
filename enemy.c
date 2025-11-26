@@ -2,34 +2,41 @@
 #include "game.h"
 #include "raylib.h"
 
-ENEMY lista_enemy = {0};
+ENEMY lista_enemy[MAXENEMY] = {0};
+Texture2D lista_sprite_enemy[MAX_ENEMY_SPRTES] = {0};
+
+void InitSpriteEnemy(){
+    lista_sprite_enemy[0] = LoadTexture("images/navio.png");
+    lista_sprite_enemy[1] = LoadTexture("images/heli1.png");
+    lista_sprite_enemy[2] = LoadTexture("images/heli2.png");
+}
 
 void InitEnemy(float x, float y, char t){
-    ENEMY e;
-    for (int i = 0, i < MAXENEMY, i++){
-        if(lista_enemy[i].is_active == false)
-            e.is_active = true;
-            e.posx = x;
-            e.posy = y;
-            e.tipo = t;
-            e.speed = 200
+    for (int i = 0; i < MAXENEMY; i++){
+        if(!lista_enemy[i].is_active){
+            lista_enemy[i].is_active = true;
+            lista_enemy[i].posx = x;
+            lista_enemy[i].posy = y;
+            lista_enemy[i].tipo = t;
+            lista_enemy[i].speed = 200;
             if(t == 'N'){
-                e.sprite LoadTexture("images/navio.png");
-                e.points = 30;
+                lista_enemy[i].sprite = lista_sprite_enemy[0];
+                lista_enemy[i].points = 30;
             }
             else{
-                e.points = 60;
-                e.sprite = LoadTexture("images/heli1.png");
+                lista_enemy[i].points = 60;
+                lista_enemy[i].sprite = lista_sprite_enemy[1];
             }
-            lista_enemy[i] = e;
+            break;
+        }
     }
 }
 
-DrawEnemy(){
+void DrawEnemy(){
     for(int i = 0; i < MAXENEMY; i++){
         if(lista_enemy[i].is_active){
             Vector2 pos = { lista_enemy[i].posx, lista_enemy[i].posy};
-            DrawTextureEx(lista_enemy.sprite, pos, 0, 1, WHITE);
+            DrawTextureEx(lista_enemy[i].sprite, pos, 0, 1, WHITE);
         }
 
     }

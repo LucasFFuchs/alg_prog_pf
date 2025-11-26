@@ -1,17 +1,19 @@
 #include "raylib.h"
 #include "projectile.h"
 #include "game.h"
+void InitProjectileConstant(){
+    for(int i = 0; i < MAXPROJECTILE; i++){
+        list_projectile[i].sprite = LoadTexture("images/projectile.png");
+        list_projectile[i].speed = 400;
+    }
 
+}
 void InitProjectile(float x, float y){
-    PROJECTILE pj;
-    pj.is_active = true;
-    pj.speed = 400;
-    pj.sprite = LoadTexture("images/projectile.png");
-    pj.posy = y - 30;
-    pj.posx = x + 20 - (pj.sprite).width/2;
     for(int i = 0; i < MAXPROJECTILE; i++){
         if(list_projectile[i].is_active == false){
-            list_projectile[i] = pj;
+            list_projectile[i].is_active = true;
+            list_projectile[i].posy = y - 30;
+            list_projectile[i].posx = x + 20 - (list_projectile[i].sprite).width/2;
             break;
         }
     }

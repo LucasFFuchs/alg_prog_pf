@@ -49,6 +49,8 @@ void MainCourse(){
             //Quando game_estate = 1, começa o jogo
             case 1: if(controller){//Mesma logica de cima, mas com o game, e checa se controller é 1, a primeira vez vai ser, entao controller vira 0 de novo
                         InitGame();
+                        InitProjectileConstant();
+                        InitSpriteEnemy();
                         controller--;
                     }
                     DrawGame();
@@ -94,6 +96,7 @@ void DrawGame(){
     DrawMap(lista_mapas[jogador.level - 1]);
     DrawPlayer(jogador);
     DrawProjectile();
+    DrawEnemy();
     ShowHud(jogador);
     DrawPause();
 
