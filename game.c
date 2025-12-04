@@ -72,9 +72,9 @@ void MainCourse(){
 
 
 void InitGame(){
-    //Inicia as variaveis do jogador
     InitPlayer(&jogador);
     InitMaps();
+    InitMapMatrix(lista_mapas[jogador.level - 1], &jogador);
 }
 
 void DrawPause(){
@@ -112,6 +112,7 @@ void UpdateGame(){
         float dt = GetFrameTime();
         UpdatePlayer(&jogador, dt);
         UpdateProjectile(dt);
+        UpdateEnemy();
 
     }
 }

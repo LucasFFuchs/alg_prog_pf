@@ -3,7 +3,8 @@
 #include "game.h"
 #include <stdio.h>
 
-FILE *lista_mapas[11] = {0};
+FILE *lista_mapas[MAXMAPS] = {0};
+TILE mapa_atual[LINHA][COLUNA];
 int flag = 0;
 
 void InitMaps(){
@@ -25,32 +26,55 @@ void CloseMaps(){
         fclose(lista_mapas[i]);
 }
 
-void DrawMap(FILE *arq_map){
+void InitMapMatrix(FILE *arq_map, PLAYER *p){
     char c;
-    int x, y;
+    int linha = 0, coluna = 0;
+
+    while ((c = fgetc(arq_map)) != EOF){
+        if(c != '\n'){
+            mapa_atual[linha][coluna].posx = coluna * TAM;
+            mapa_atual[linha][coluna].posy = TAM * (linha + 2);
+            mapa_atual[linha][coluna].tipo = c;
+
+            if(c == 'A'){
+                p -> posx = mapa_atual[linha][coluna].posx;
+                p -> posy = mapa_atual[linha][coluna].posy;
+            }
+
+            if(coluna < COLUNA - 1)
+                coluna++;
+            else{
+                coluna = 0;
+                linha++;
+            }
+        }
+
+    }
+    rewind(arq_map);
+}
+
+void DrawMap(){
+    TILE t;
     Color terrain_color = {96, 158, 49, 255};
 
-    rewind(arq_map);
-    x = 0; y = 80;
-    while ((c = fgetc(arq_map)) != EOF){
-        if(c == 'T'){
-            DrawRectangle(x, y, TAM, TAM, terrain_color);
-            x += TAM;
-        }else if(c == ' '){
-            x += TAM;
-        }else if(c == 'X' || c == 'N'){
-            if(!flag){
-                InitEnemy(x, y, c);
-                printf("------------------------------------------\n");
+    for(int linha = 0; linha < LINHA; linha++){
+        for(int coluna = 0; coluna < COLUNA; coluna++){
+            t = mapa_atual[linha][coluna];
+            switch(t.tipo){
+                case 'T':   DrawRectangle(t.posx, t.posy, TAM, TAM, terrain_color);
+                            break;
+                case 'X':
+
+                case 'N':   if(!flag)
+                                InitEnemy(t.posx, t.posy, t.tipo);
+                            break;
+                case 'A':   if(!flag)
+
+                            break;
+
             }
-            x += TAM;
-        }else if(c == 'A'){
-            DrawRectangle(x, y, TAM, TAM, YELLOW);
-            x += TAM;
-        }else if(c == '\n'){
-            y += TAM;
-            x = 0;
         }
     }
     flag++;
 }
+

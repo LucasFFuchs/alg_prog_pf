@@ -25,7 +25,7 @@
 	"player.h"
 	"raylib.h"
 
-1764120086 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\game.c
+1764806776 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\game.c
 	"game.h"
 	"player.h"
 	"projectile.h"
@@ -35,7 +35,7 @@
 	"mapa.h"
 	<stdio.h>
 
-1764119913 c:\users\admin\desktop\faculdade\c\alg_prog_pf\game.h
+1764806312 c:\users\admin\desktop\faculdade\c\alg_prog_pf\game.h
 	"projectile.h"
 	"button.h"
 	"enemy.h"
@@ -44,7 +44,7 @@
 1764109778 c:\users\admin\desktop\faculdade\c\alg_prog_pf\player.h
 	"raylib.h"
 
-1764118180 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\mapa.c
+1764806767 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\mapa.c
 	"raylib.h"
 	"mapa.h"
 	"game.h"
@@ -123,20 +123,22 @@
 1764101648 c:\users\admin\desktop\faculdade\c\alg_prog_pf\button.h
 	"raylib.h"
 
-1764102472 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\button.c
+1764185165 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\button.c
 	<string.h>
 	"raylib.h"
 	"button.h"
 	"menu.h"
 
-1764120096 c:\users\admin\desktop\faculdade\c\alg_prog_pf\enemy.h
+1764174313 c:\users\admin\desktop\faculdade\c\alg_prog_pf\enemy.h
 	"raylib.h"
 
-1764115221 c:\users\admin\desktop\faculdade\c\alg_prog_pf\mapa.h
+1764806788 c:\users\admin\desktop\faculdade\c\alg_prog_pf\mapa.h
 	<stdio.h>
+	"player.h"
 
-1764120470 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\enemy.c
+1764800594 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\enemy.c
 	"enemy.h"
 	"game.h"
 	"raylib.h"
+	<stdio.h>
 

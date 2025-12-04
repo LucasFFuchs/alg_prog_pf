@@ -4,7 +4,7 @@
 
 typedef struct {
     float posx, posy;
-    int points, speed;
+    int points, speed, list_index;
     bool is_active;
     char tipo;
 

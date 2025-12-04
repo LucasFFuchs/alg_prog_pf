@@ -2,6 +2,7 @@
 #include "raylib.h"
 #include "projectile.h"
 #include "game.h"
+#include "mapa.h"
 
 //Declaração da lista a ser armazenadas os sprites do aviao
 Texture2D sprite_list[3];
@@ -9,8 +10,7 @@ Texture2D sprite_list[3];
 
 void InitPlayer(PLAYER *p){
     //Inicia a estrutura do nosso jogador com suas variaveis padroes
-    p -> posy = 800;
-    p -> posx = 400;
+
     p -> speed = 390;
 
     p -> points = 0;
@@ -58,6 +58,8 @@ void UpdatePlayer(PLAYER *p, float dt){
 
     //Move o player para direita ou esquerda(na mesma velocidade, independente do FPS), dependendo se o input_user é positivo ou negativo
     p -> posx += p -> speed * input_user * dt;
+
+    p -> posy -= 200 * dt;
 
 
     //Quando espaço ou K é apertado, inicia um projetil com a função InitProjectile nas posições do player

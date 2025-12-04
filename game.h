@@ -10,8 +10,11 @@
 #define MAXENEMY 10
 #define MAX_ENEMY_SPRTES 3
 
-#define SCREEN_WIDTH 24 * 40
-#define SCREEN_HEIGHT 22 * 40
+#define LINHA 20
+#define COLUNA 24
+
+#define SCREEN_WIDTH COLUNA * 40
+#define SCREEN_HEIGHT (LINHA + 2) * 40
 #define TAM 40
 
 extern int pause;
