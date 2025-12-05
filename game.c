@@ -110,9 +110,32 @@ void UpdateGame(){
     float dt;
     if(!pause){
         float dt = GetFrameTime();
+
         UpdatePlayer(&jogador, dt);
         UpdateProjectile(dt);
         UpdateEnemy();
 
+        CheckAllCollision();
+
+    }
+}
+
+void CheckAllCollision(){
+    for(int i = 0; i < MAXENEMY; i++){
+        if(lista_enemy[i].is_active){
+            for(int j = 0; j < MAXPROJECTILE; j++){
+                if(list_projectile[j].is_active){
+                    if(CheckCollisionRecs(lista_enemy[i].hitbox, list_projectile[j].hitbox)){
+                        jogador.points += lista_enemy[i].points;
+                        lista_enemy[i].is_active = false;
+                        list_projectile[j].is_active = false;
+                    }
+                }
+            }
+            if(CheckCollisionRecs(lista_enemy[i].hitbox, jogador.hitbox)){
+                jogador.lives--;
+                lista_enemy[i].is_active = false;
+            }
+        }
     }
 }

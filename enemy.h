@@ -8,6 +8,7 @@ typedef struct {
     bool is_active;
     char tipo;
 
+    Rectangle hitbox;
     Texture2D sprite;
 
 }ENEMY;

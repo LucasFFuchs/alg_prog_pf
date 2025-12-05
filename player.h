@@ -7,6 +7,7 @@ typedef struct {
     float speed;
     int lives, points, level, fuel_quantity;
 
+    Rectangle hitbox;
     Texture2D sprite;
 
 }PLAYER;

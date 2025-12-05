@@ -39,6 +39,11 @@ void InitMapMatrix(FILE *arq_map, PLAYER *p){
             if(c == 'A'){
                 p -> posx = mapa_atual[linha][coluna].posx;
                 p -> posy = mapa_atual[linha][coluna].posy;
+
+                p -> hitbox.y = p -> posy;
+                p -> hitbox.x = p -> posx;
+                p -> hitbox.height = (p -> sprite).height;
+                p -> hitbox.width = (p -> sprite).width;
             }
 
             if(coluna < COLUNA - 1)

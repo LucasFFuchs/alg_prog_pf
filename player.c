@@ -55,20 +55,26 @@ void UpdatePlayer(PLAYER *p, float dt){
 
     //A partir do input_user, o usa para determinar qual sprite usar, aviao1, se estiver indo para direita, aviao2, se estiver parado, aviao3 se estiver indo para esquerda
     p -> sprite = sprite_list[1 + input_user];
+    if(input_user != 0){
+        p -> hitbox.height = (p -> sprite).height;
+        p -> hitbox.width = (p -> sprite).width;
+    }
 
     //Move o player para direita ou esquerda(na mesma velocidade, independente do FPS), dependendo se o input_user é positivo ou negativo
     p -> posx += p -> speed * input_user * dt;
 
-    p -> posy -= 200 * dt;
+    p -> hitbox.x += p -> speed * input_user * dt;
+
+    p -> posy -= 20 * dt;
+
+    p -> hitbox.y -= 20 * dt;
 
 
     //Quando espaço ou K é apertado, inicia um projetil com a função InitProjectile nas posições do player
     if(IsKeyPressed(KEY_SPACE ) || IsKeyPressed(KEY_K)){
         InitProjectile(p -> posx, p -> posy);
     }
-    if(p -> posx < -(p -> sprite).width)
-        p -> posx = SCREEN_WIDTH;
-    if(p -> posx > SCREEN_WIDTH)
-        p -> posx = -(p -> sprite).width;
+
+
 }
 

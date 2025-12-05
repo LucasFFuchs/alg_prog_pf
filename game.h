@@ -34,5 +34,7 @@ void DrawGame();
 
 void UpdateGame();
 
+void CheckAllCollision();
+
 
 #endif // GAME_H_INCLUDED

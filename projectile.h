@@ -6,6 +6,8 @@ typedef struct {
     bool is_active;
     float posx, posy;
     float speed;
+
+    Rectangle hitbox;
     Texture2D sprite;
 }PROJECTILE;
 

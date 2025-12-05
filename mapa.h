@@ -10,6 +10,7 @@
 typedef struct{
     int posx, posy;
     char tipo;
+    Rectangle hitbox;
 }TILE;
 
 extern FILE *lista_mapas[MAXMAPS];

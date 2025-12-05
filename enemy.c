@@ -31,6 +31,12 @@ void InitEnemy(float x, float y, char t){
                 lista_enemy[i].list_index = 1;
             }
             lista_enemy[i].sprite = lista_sprite_enemy[lista_enemy[i].list_index];
+
+            lista_enemy[i].hitbox.x = lista_enemy[i].posx;
+            lista_enemy[i].hitbox.y = lista_enemy[i].posy;
+            lista_enemy[i].hitbox.height = lista_enemy[i].sprite.height;
+            lista_enemy[i].hitbox.width = lista_enemy[i].sprite.width;
+
             break;
         }
     }
