@@ -1,11 +1,12 @@
-#include "game.h"
-#include "player.h"
-#include "projectile.h"
-#include "button.h"
-#include "menu.h"
 #include "raylib.h"
-#include "mapa.h"
 #include <stdio.h>
+#include "../include/game.h"
+#include "../include/player.h"
+#include "../include/projectile.h"
+#include "../include/button.h"
+#include "../include/menu.h"
+#include "../include/mapa.h"
+
 
 
 //Inicia variaveis
@@ -16,7 +17,7 @@ PROJECTILE list_projectile[MAXPROJECTILE] = {0}; //Inicia lista de projetis, com
 int pause = 0; //Inicia variavel pause como 0, desativada
 int game_estate = -1; //inicia variavel do game_estate como -1, ou seja, na tela inicial
 
-void MainCourse(){
+void RunGame(){
     //Inicia Jogo
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "River Raid");
     SetTargetFPS(60);
@@ -121,6 +122,7 @@ void UpdateGame(){
 }
 
 void CheckAllCollision(){
+
     for(int i = 0; i < MAXENEMY; i++){
         if(lista_enemy[i].is_active){
             for(int j = 0; j < MAXPROJECTILE; j++){
@@ -136,6 +138,54 @@ void CheckAllCollision(){
                 jogador.lives--;
                 lista_enemy[i].is_active = false;
             }
+
         }
     }
+
+    for(int i = 0; i < MAXPROJECTILE; i++){
+        if(list_projectile[i].is_active){
+            for(int linha = 0; linha < LINHA; linha++){
+                for(int coluna = 0; coluna < COLUNA; coluna++){
+                    if(mapa_atual[linha][coluna].tipo == 'T'){
+                        if(CheckCollisionRecs(list_projectile[i].hitbox, mapa_atual[linha][coluna].hitbox))
+                            list_projectile[i].is_active = false;
+                    }
+                }
+            }
+        }
+    }
+}
+
+int CheckTerrainPlayer(int tipoMov, float old_x, float old_y){
+    for(int i = 0; i < LINHA; i++){
+        for(int j = 0; j < COLUNA; j++){
+
+            TILE t = mapa_atual[i][j];
+
+            if(t.tipo == 'T'){
+                if(CheckCollisionRecs(jogador.hitbox, t.hitbox)){
+
+                    // Movimento horizontal
+                    if(tipoMov == 1){
+                        // Vindo pela esquerda
+                        if(old_x + jogador.hitbox.width <= t.hitbox.x)
+                            return 1;
+
+                        // Vindo pela direita
+                        if(old_x >= t.hitbox.x + t.hitbox.width)
+                            return 1;
+                    }
+
+                    // Movimento vertical
+                    if(tipoMov == 2){
+
+                        // Vindo de baixo (subindo)
+                        if(old_y >= t.hitbox.y + t.hitbox.height)
+                            return 1;
+                    }
+                }
+            }
+        }
+    }
+    return 0;
 }

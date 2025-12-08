@@ -1,12 +1,13 @@
 #include "raylib.h"
-#include "menu.h"
-#include "button.h"
+#include "../include/menu.h"
+#include "../include/button.h"
 
 Color menu_color = {37, 150, 190, 255};
 BUTTON lista_botoes[4] = {0};
 
 void HomeScreen(){
     int size = 100, posy = 300;
+
     BeginDrawing();
     ClearBackground(menu_color);
     DrawText("River Raid", SCREEN_WIDTH / 2 - MeasureText("River Raid", size) / 2, posy, size, YELLOW);

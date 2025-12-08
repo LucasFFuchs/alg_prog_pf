@@ -1,6 +1,7 @@
 #include "raylib.h"
-#include "projectile.h"
-#include "game.h"
+#include "../include/projectile.h"
+#include "../include/game.h"
+
 void InitProjectileConstant(){
     for(int i = 0; i < MAXPROJECTILE; i++){
         list_projectile[i].sprite = LoadTexture("images/projectile.png");

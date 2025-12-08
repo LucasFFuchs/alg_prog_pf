@@ -1,8 +1,7 @@
-#include "enemy.h"
-#include "game.h"
 #include "raylib.h"
+#include "../include/enemy.h"
+#include "../include/game.h"
 
-#include <stdio.h>
 
 ENEMY lista_enemy[MAXENEMY] = {0};
 Texture2D lista_sprite_enemy[MAX_ENEMY_SPRTES] = {0};

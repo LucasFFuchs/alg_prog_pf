@@ -1,8 +1,9 @@
-#include "player.h"
 #include "raylib.h"
-#include "projectile.h"
-#include "game.h"
-#include "mapa.h"
+#include "../include/player.h"
+#include "../include/projectile.h"
+#include "../include/game.h"
+#include "../include/mapa.h"
+
 
 //Declaração da lista a ser armazenadas os sprites do aviao
 Texture2D sprite_list[3];
@@ -11,7 +12,8 @@ Texture2D sprite_list[3];
 void InitPlayer(PLAYER *p){
     //Inicia a estrutura do nosso jogador com suas variaveis padroes
 
-    p -> speed = 390;
+    p -> speed_x = 390;
+    p -> speed_y = 100;
 
     p -> points = 0;
     p -> level = 1;
@@ -48,33 +50,41 @@ void DrawPlayer(PLAYER p){
 }
 
 void UpdatePlayer(PLAYER *p, float dt){
+    float old_x, old_y;
 
-    //Declara a variavel que controla se o player esta indo para direita ou esquerda -> -1 para esquerda, 0 parado, 1 para direita
     int input_user = (IsKeyDown(KEY_RIGHT) || IsKeyDown(KEY_D))
                    - (IsKeyDown(KEY_LEFT)  || IsKeyDown(KEY_A));
 
-    //A partir do input_user, o usa para determinar qual sprite usar, aviao1, se estiver indo para direita, aviao2, se estiver parado, aviao3 se estiver indo para esquerda
-    p -> sprite = sprite_list[1 + input_user];
-    if(input_user != 0){
-        p -> hitbox.height = (p -> sprite).height;
-        p -> hitbox.width = (p -> sprite).width;
+    p->sprite = sprite_list[1 + input_user];
+
+    p->hitbox.height = p->sprite.height;
+    p->hitbox.width  = p->sprite.width;
+
+
+    // MOVIMENTO HORIZONTAL
+
+    old_x = p->posx;
+
+    p -> posx += p-> speed_x * input_user * dt;
+    p -> hitbox.x = p -> posx;
+
+    if(CheckTerrainPlayer(1, old_x, p -> posy))     // 1 = colisão horizontal
+        p -> posx = old_x;
+
+
+    // MOVIMENTO VERTICAL (descida automática)
+    old_y = p -> posy;
+
+    p -> posy -= p -> speed_y * dt;
+    p -> hitbox.y = p -> posy;
+
+    if(CheckTerrainPlayer(2, p -> posx, old_y))     // 2 = colisão vertical
+        p -> posy = old_y + 1;
+
+
+    // TIRO
+    if(IsKeyPressed(KEY_SPACE) || IsKeyPressed(KEY_K)){
+        InitProjectile(p->posx, p->posy);
     }
-
-    //Move o player para direita ou esquerda(na mesma velocidade, independente do FPS), dependendo se o input_user é positivo ou negativo
-    p -> posx += p -> speed * input_user * dt;
-
-    p -> hitbox.x += p -> speed * input_user * dt;
-
-    p -> posy -= 20 * dt;
-
-    p -> hitbox.y -= 20 * dt;
-
-
-    //Quando espaço ou K é apertado, inicia um projetil com a função InitProjectile nas posições do player
-    if(IsKeyPressed(KEY_SPACE ) || IsKeyPressed(KEY_K)){
-        InitProjectile(p -> posx, p -> posy);
-    }
-
-
 }
 

@@ -4,7 +4,7 @@
 
 typedef struct {
     float posx, posy;
-    float speed;
+    float speed_x, speed_y;
     int lives, points, level, fuel_quantity;
 
     Rectangle hitbox;

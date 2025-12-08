@@ -1,7 +1,8 @@
 #include "raylib.h"
-#include "mapa.h"
-#include "game.h"
 #include <stdio.h>
+#include "../include/mapa.h"
+#include "../include/game.h"
+
 
 FILE *lista_mapas[MAXMAPS] = {0};
 TILE mapa_atual[LINHA][COLUNA];
@@ -36,6 +37,11 @@ void InitMapMatrix(FILE *arq_map, PLAYER *p){
             mapa_atual[linha][coluna].posy = TAM * (linha + 2);
             mapa_atual[linha][coluna].tipo = c;
 
+            mapa_atual[linha][coluna].hitbox.x = mapa_atual[linha][coluna].posx;
+            mapa_atual[linha][coluna].hitbox.y = mapa_atual[linha][coluna].posy;
+            mapa_atual[linha][coluna].hitbox.width = TAM;
+            mapa_atual[linha][coluna].hitbox.height = TAM;
+
             if(c == 'A'){
                 p -> posx = mapa_atual[linha][coluna].posx;
                 p -> posy = mapa_atual[linha][coluna].posy;
@@ -56,6 +62,12 @@ void InitMapMatrix(FILE *arq_map, PLAYER *p){
 
     }
     rewind(arq_map);
+
+    for(int linha = 0; linha < LINHA; linha++){
+        for(int coluna = 0; coluna < COLUNA; coluna++)
+            printf("%c", mapa_atual[linha][coluna].tipo);
+        printf("\n");
+    }
 }
 
 void DrawMap(){

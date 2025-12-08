@@ -4,6 +4,7 @@
 #include "projectile.h"
 #include "button.h"
 #include "enemy.h"
+#include "mapa.h"
 #include <stdio.h>
 
 #define MAXPROJECTILE 8
@@ -24,7 +25,7 @@ extern Texture2D lista_sprite_enemy[MAX_ENEMY_SPRTES];
 
 
 
-void MainCourse();
+void RunGame();
 
 void DrawPause();
 
@@ -36,5 +37,8 @@ void UpdateGame();
 
 void CheckAllCollision();
 
+int CheckTerrainPlayer(int tipoMov, float old_x, float old_y);
+
+/*int CheckTerrainPlayerDirection(TILE t);*/
 
 #endif // GAME_H_INCLUDED

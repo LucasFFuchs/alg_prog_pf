@@ -4,15 +4,12 @@
 typedef struct {
     int posx, posy;
     float segundos;
-}
+}FUEL;
 
 
-void DrawFuel(){
+void DrawFuel();
 
-
-}
-
-void UpdateFue();
+void UpdateFuel();
 
 
 #endif // FUEL_H_INCLUDED

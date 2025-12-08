@@ -1,7 +1,7 @@
-#include <string.h>
 #include "raylib.h"
-#include "button.h"
-#include "menu.h"
+#include <string.h>
+#include "../include/button.h"
+#include "../include/menu.h"
 
 BUTTON InitButton(int posx, int posy, int font_size, char text[], int option){
     BUTTON b;
