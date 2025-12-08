@@ -35,6 +35,10 @@
 		<Linker>
 			<Add directory="C:/raylib/w64devkit/lib" />
 		</Linker>
+		<Unit filename="button.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="button.h" />
 		<Unit filename="enemy.c">
 			<Option compilerVar="CC" />
 			<Option target="&lt;{~None~}&gt;" />
@@ -62,6 +66,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="mapa.h" />
+		<Unit filename="menu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="menu.h" />
 		<Unit filename="player.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -70,16 +78,8 @@
 		</Unit>
 		<Unit filename="projectile.c">
 			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="projectile.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="rest.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="rest.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Extensions>
