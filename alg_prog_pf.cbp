@@ -35,52 +35,40 @@
 		<Linker>
 			<Add directory="C:/raylib/w64devkit/lib" />
 		</Linker>
-		<Unit filename="button.c">
+		<Unit filename="include/button.h" />
+		<Unit filename="include/enemy.h" />
+		<Unit filename="include/fuel.h" />
+		<Unit filename="include/game.h" />
+		<Unit filename="include/mapa.h" />
+		<Unit filename="include/menu.h" />
+		<Unit filename="include/player.h" />
+		<Unit filename="include/projectile.h" />
+		<Unit filename="src/button.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="button.h" />
-		<Unit filename="enemy.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="enemy.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="fuel.c">
-			<Option compilerVar="CC" />
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="fuel.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="game.c">
+		<Unit filename="src/enemy.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="game.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="main.c">
+		<Unit filename="src/fuel.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="mapa.c">
+		<Unit filename="src/game.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="mapa.h" />
-		<Unit filename="menu.c">
+		<Unit filename="src/main.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="menu.h" />
-		<Unit filename="player.c">
+		<Unit filename="src/mapa.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="player.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="projectile.c">
+		<Unit filename="src/menu.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="projectile.h">
-			<Option target="&lt;{~None~}&gt;" />
+		<Unit filename="src/player.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/projectile.c">
+			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions>
 			<lib_finder disable_auto="1" />
