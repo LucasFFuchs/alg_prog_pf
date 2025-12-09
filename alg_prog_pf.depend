@@ -223,3 +223,82 @@
 	"../include/projectile.h"
 	"../include/game.h"
 
+1765304232 source:c:\users\edu_d\alg_prog_pf\src\fuel.c
+	"raylib.h"
+	"../include/fuel.h"
+
+1765304232 c:\users\edu_d\alg_prog_pf\include\fuel.h
+
+1765304232 source:c:\users\edu_d\alg_prog_pf\src\main.c
+	"../include/game.h"
+
+1765304232 c:\users\edu_d\alg_prog_pf\include\game.h
+	"projectile.h"
+	"button.h"
+	"enemy.h"
+	"mapa.h"
+	<stdio.h>
+
+1765304232 c:\users\edu_d\alg_prog_pf\include\projectile.h
+	"player.h"
+
+1765304232 c:\users\edu_d\alg_prog_pf\include\player.h
+	"raylib.h"
+
+1765304232 c:\users\edu_d\alg_prog_pf\include\button.h
+	"raylib.h"
+
+1765304232 c:\users\edu_d\alg_prog_pf\include\enemy.h
+	"raylib.h"
+
+1765304232 c:\users\edu_d\alg_prog_pf\include\mapa.h
+	<stdio.h>
+	"player.h"
+
+1765308409 source:c:\users\edu_d\alg_prog_pf\src\button.c
+	"raylib.h"
+	<string.h>
+	"../include/button.h"
+	"../include/menu.h"
+
+1765304232 c:\users\edu_d\alg_prog_pf\include\menu.h
+	"game.h"
+
+1765308409 source:c:\users\edu_d\alg_prog_pf\src\enemy.c
+	"raylib.h"
+	"../include/enemy.h"
+	"../include/game.h"
+
+1765308409 source:c:\users\edu_d\alg_prog_pf\src\game.c
+	"raylib.h"
+	<stdio.h>
+	"../include/game.h"
+	"../include/player.h"
+	"../include/projectile.h"
+	"../include/button.h"
+	"../include/menu.h"
+	"../include/mapa.h"
+
+1765308409 source:c:\users\edu_d\alg_prog_pf\src\mapa.c
+	"raylib.h"
+	<stdio.h>
+	"../include/mapa.h"
+	"../include/game.h"
+
+1765308409 source:c:\users\edu_d\alg_prog_pf\src\menu.c
+	"raylib.h"
+	"../include/menu.h"
+	"../include/button.h"
+
+1765308409 source:c:\users\edu_d\alg_prog_pf\src\player.c
+	"raylib.h"
+	"../include/player.h"
+	"../include/projectile.h"
+	"../include/game.h"
+	"../include/mapa.h"
+
+1765308409 source:c:\users\edu_d\alg_prog_pf\src\projectile.c
+	"raylib.h"
+	"../include/projectile.h"
+	"../include/game.h"
+

@@ -5,6 +5,14 @@
 #include "../include/mapa.h"
 
 
+// -> o arquivo Player.c gerencia completamente o jogador do jogo
+// ele define como o aviao se comporta, como se move e como reage ao mundo
+// Player.c eh responsavel por carregar sprites, atualizar movimentos,
+// gerenciar pontuacao, nivel, vidas e gasolina
+// tambem desenha o HUD com informacoes importantes e controla os tiros do jogador
+// em resumo: este arquivo contem toda a logica central do personagem principal
+
+
 //Declaração da lista a ser armazenadas os sprites do aviao
 Texture2D sprite_list[3];
 

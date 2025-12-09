@@ -8,6 +8,18 @@
 #include "../include/mapa.h"
 
 
+// -> o arquivo game.c gerencia o funcionamento geral do jogo
+// aqui nasce o loop principal, onde todas as telas, estados e sistemas do jogo
+// sao controlados.
+
+// game.c eh responsavel por iniciar o jogo, alternar entre tela inicial,
+// menu, gameplay e tela de sair. Tambem coordena player, inimigos,
+// projeteis, mapa e colisao.
+
+// este arquivo funciona como o "cerebro" do River Raid, chamando as funcoes
+// de todos os outros modulos.
+
+
 
 //Inicia variaveis
 PLAYER jogador; //Variavel do player, nosso jogador
