@@ -4,7 +4,7 @@
 
 
 ENEMY lista_enemy[MAXENEMY] = {0};
-Texture2D lista_sprite_enemy[MAX_ENEMY_SPRTES] = {0};
+Texture2D lista_sprite_enemy[MAX_ENEMY_SPRITES] = {0};
 int cont = 0;
 
 void InitSpriteEnemy(){

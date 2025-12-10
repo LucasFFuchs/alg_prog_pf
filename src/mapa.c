@@ -6,7 +6,7 @@
 
 FILE *lista_mapas[MAXMAPS] = {0};
 TILE mapa_atual[LINHA][COLUNA];
-int flag = 0;
+int flag;
 
 void InitMaps(){
     lista_mapas[0] = fopen("mapas/fase1.txt", "r");
@@ -27,14 +27,14 @@ void CloseMaps(){
         fclose(lista_mapas[i]);
 }
 
-void InitMapMatrix(FILE *arq_map, PLAYER *p){
+void InitMapMatrix(FILE *arq_map, PLAYER *p, PLAYER *backup){
     char c;
     int linha = 0, coluna = 0;
 
     while ((c = fgetc(arq_map)) != EOF){
-        if(c != '\n'){
+        if(c != '\n' && c != '\r'){
             mapa_atual[linha][coluna].posx = coluna * TAM;
-            mapa_atual[linha][coluna].posy = TAM * (linha + 2);
+            mapa_atual[linha][coluna].posy = TAM * (linha + (HUD_HEIGHT/TAM));
             mapa_atual[linha][coluna].tipo = c;
 
             mapa_atual[linha][coluna].hitbox.x = mapa_atual[linha][coluna].posx;
@@ -50,6 +50,8 @@ void InitMapMatrix(FILE *arq_map, PLAYER *p){
                 p -> hitbox.x = p -> posx;
                 p -> hitbox.height = (p -> sprite).height;
                 p -> hitbox.width = (p -> sprite).width;
+
+                *backup = *p;
             }
 
             if(coluna < COLUNA - 1)
@@ -62,6 +64,7 @@ void InitMapMatrix(FILE *arq_map, PLAYER *p){
 
     }
     rewind(arq_map);
+    flag = 0;
 
     for(int linha = 0; linha < LINHA; linha++){
         for(int coluna = 0; coluna < COLUNA; coluna++)
@@ -85,8 +88,10 @@ void DrawMap(){
                 case 'N':   if(!flag)
                                 InitEnemy(t.posx, t.posy, t.tipo);
                             break;
+                case 'G':   if(!flag)
+                                InitFuel(t.posx, t.posy);
+                            break;
                 case 'A':   if(!flag)
-
                             break;
 
             }

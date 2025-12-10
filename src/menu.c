@@ -3,7 +3,7 @@
 #include "../include/button.h"
 
 Color menu_color = {37, 150, 190, 255};
-BUTTON lista_botoes[4] = {0};
+BUTTON lista_botoes[MAXBUTTON] = {0};
 
 void HomeScreen(){
     int size = 100, posy = 300;
@@ -27,11 +27,12 @@ void InitMenu(){
 void DrawMenu(){
     BeginDrawing();
     ClearBackground(menu_color);
-    DrawButton(lista_botoes);
-
+    for(int i = 0; i < MAXBUTTON; i++)
+        DrawButton(lista_botoes[i]);
     EndDrawing();
 }
 
 void UpdateMenu(){
-    SelectedButton(lista_botoes);
+    for(int i  = 0; i < MAXBUTTON; i++)
+        SelectedButton(&lista_botoes[i], GOLD, YELLOW);
 }

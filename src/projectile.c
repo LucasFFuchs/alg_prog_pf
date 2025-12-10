@@ -5,7 +5,7 @@
 void InitProjectileConstant(){
     for(int i = 0; i < MAXPROJECTILE; i++){
         list_projectile[i].sprite = LoadTexture("images/projectile.png");
-        list_projectile[i].speed = 400;
+        list_projectile[i].speed = SPEED_PROJECTILE;
     }
 
 }

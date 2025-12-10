@@ -13,14 +13,14 @@ typedef struct {
     Color color;
 }BUTTON;
 
-BUTTON InitButton(int posx, int posy, int font_size, char text[], int option);
+BUTTON InitButton(int posx, int posy, int font_size, char text[], int option, Color cor);
 
 void LoadButtons(BUTTON lista_botoes[]);
 
-void DrawButton(BUTTON lista_botoes[]);
+void DrawButton(BUTTON b);
 
 void UpdateButton(Color mudar_cor, BUTTON *b);
 
-void SelectedButton(BUTTON lista_botoes[]);
+bool SelectedButton(BUTTON *b, Color cor, Color cor_antiga);
 
 #endif // BUTTON_H_INCLUDED

@@ -21,7 +21,7 @@ extern TILE mapa_atual[20][24];
 
 void InitMaps();
 
-void InitMapMatrix(FILE *arq_map, PLAYER *p);
+void InitMapMatrix(FILE *arq_map, PLAYER *p, PLAYER *backup);
 
 void DrawMap();
 
