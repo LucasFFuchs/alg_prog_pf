@@ -51,14 +51,15 @@ void DrawPlayer(PLAYER p){
 }
 
 void UpdatePlayer(PLAYER *p, float dt){
+    //Armazena os valores de posx e posy antes de atualizarem, em caso de haver colisao com parede
     float old_x, old_y;
 
     int input_user = (IsKeyDown(KEY_RIGHT) || IsKeyDown(KEY_D))
-                   - (IsKeyDown(KEY_LEFT)  || IsKeyDown(KEY_A));
+                   - (IsKeyDown(KEY_LEFT)  || IsKeyDown(KEY_A)); //Se pressionado para ir a esquerda, input user é negativo e a direita, input user é positivo
 
-    p->sprite = sprite_list[1 + input_user];
+    p->sprite = sprite_list[1 + input_user]; //Seleciona sprite do jogador com base no input_user
 
-    p->hitbox.height = p->sprite.height;
+    p->hitbox.height = p->sprite.height; //Atualiza hitbox do jogador em caso de mudança de sprite
     p->hitbox.width  = p->sprite.width;
 
 
@@ -69,7 +70,7 @@ void UpdatePlayer(PLAYER *p, float dt){
     p -> posx += p-> speed_x * input_user * dt;
     p -> hitbox.x = p -> posx;
 
-    if(CheckTerrainPlayer(1, old_x, p -> posy))     // 1 = colisão horizontal
+    if(CheckTerrainPlayer(1, old_x, p -> posy))     //Colisão horizontal -> não deixa jogador entrar para parede
         p -> posx = old_x;
 
 
@@ -79,10 +80,10 @@ void UpdatePlayer(PLAYER *p, float dt){
     p -> posy -= p -> speed_y * dt;
     p -> hitbox.y = p -> posy;
 
-    if(CheckTerrainPlayer(2, p -> posx, old_y))     // 2 = colisão vertical
+    if(CheckTerrainPlayer(2, p -> posx, old_y))     //Colisão vertical -> volta 1 no eixo y para não ficar preso no "teto"
         p -> posy = old_y + 1;
 
-    UpdateFuel(p, old_y);
+    UpdateFuel(p, old_y); //Atualiza quantidade de combustivel com base na antiga posição do jogador
 
     // TIRO
     if(IsKeyPressed(KEY_SPACE) || IsKeyPressed(KEY_K)){

@@ -6,12 +6,14 @@ FUEL lista_fuel[MAXFUEL] = {0};
 int fuel_loss = 10;
 int fuel_gain = 30;
 
+//Inicializa os elementos da lista de combustivel com o sprite do posto de gasolina
 void InitFuelSprite(){
     Texture2D sprite = LoadTexture("images/fuel.png");
     for(int i = 0; i < MAXFUEL; i++)
         lista_fuel[i].sprite = sprite;
 }
 
+//Inicia o posto de gasolina com as posições x e y vindas do DrawMap
 void InitFuel(int x, int y){
     for(int i = 0; i < MAXFUEL; i++){
         if(!lista_fuel[i].is_active){
@@ -29,6 +31,7 @@ void InitFuel(int x, int y){
     }
 }
 
+//Desenha o posto de gasolina
 void DrawFuel(){
     for(int i = 0; i < MAXFUEL; i++){
         if(lista_fuel[i].is_active){
@@ -38,6 +41,8 @@ void DrawFuel(){
     }
 }
 
+//Atualiza combustivel, no primeiro nivel, a função começa tirando 10 quantidades de combustivel por mapa percorrido, e esse numero aumenta de 1 em 1 a cada nivel passado, ou seja no ultimo nivel
+// estara tirando 19 por mapa
 void UpdateFuel(PLAYER *p, float old_y){
     float deltay;
 

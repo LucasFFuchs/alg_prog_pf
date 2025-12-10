@@ -43,6 +43,7 @@
 		<Unit filename="include/menu.h" />
 		<Unit filename="include/player.h" />
 		<Unit filename="include/projectile.h" />
+		<Unit filename="include/utils.h" />
 		<Unit filename="src/button.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -68,6 +69,9 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="src/projectile.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/utils.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Extensions>
