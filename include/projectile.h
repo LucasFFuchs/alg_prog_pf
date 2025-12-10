@@ -2,6 +2,8 @@
 #define PROJECTILE_H_INCLUDED
 #include "player.h"
 
+#define SPEED_PROJECTILE 450
+
 typedef struct {
     bool is_active;
     float posx, posy;

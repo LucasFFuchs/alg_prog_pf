@@ -4,24 +4,28 @@
 
 
 ENEMY lista_enemy[MAXENEMY] = {0};
-Texture2D lista_sprite_enemy[MAX_ENEMY_SPRTES] = {0};
-int cont = 0;
+Texture2D lista_sprite_enemy[MAX_ENEMY_SPRITES] = {0};
+int cont = 0;// contador que usamos pra trocar o sprite da animacao dos helicopteros
+
+
 
 void InitSpriteEnemy(){
+    // essa eh a lista com sprites usado pelos enemys
+    // os inimigos (helicopteros) alternam entre sprites para criar uma animacao simples
     lista_sprite_enemy[0] = LoadTexture("images/navio.png");
     lista_sprite_enemy[1] = LoadTexture("images/heli1.png");
     lista_sprite_enemy[2] = LoadTexture("images/heli2.png");
 }
 
 void InitEnemy(float x, float y, char t){
-    for (int i = 0; i < MAXENEMY; i++){
+    for (int i = 0; i < MAXENEMY; i++){ // o for serve pra procurar o primeiro slot inativo pra criar um novo inimigo
         if(!lista_enemy[i].is_active){
             lista_enemy[i].is_active = true;
             lista_enemy[i].posx = x;
             lista_enemy[i].posy = y;
             lista_enemy[i].tipo = t;
             lista_enemy[i].speed = 200;
-            if(t == 'N'){
+            if(t == 'N'){ // define os pontos e sprite inicial baseado no tipo
                 lista_enemy[i].list_index = 0;
                 lista_enemy[i].points = 30;
             }
@@ -36,11 +40,12 @@ void InitEnemy(float x, float y, char t){
             lista_enemy[i].hitbox.height = lista_enemy[i].sprite.height;
             lista_enemy[i].hitbox.width = lista_enemy[i].sprite.width;
 
-            break;
+            break; // se criou um inimigo -> break -> saimos do loop
         }
     }
 }
 
+// uma vez criado o inimigo, podemos desenhar ele na tela. segue a funcao para isto logo abaixo
 void DrawEnemy(){
     for(int i = 0; i < MAXENEMY; i++){
         if(lista_enemy[i].is_active){
@@ -52,6 +57,9 @@ void DrawEnemy(){
 
 }
 void UpdateEnemy(){
+    // passo final de enemy.c -> uma vez criado o inimigo e desenhado no mapa, precisamos atualizar o inimigo
+    // os helicopteros ('X') variam entre 2 sprites pra simular uma animacao
+    // a troca ocorre a cada 2 frames e esta relacionado ao contador "cont"
     cont++;
     if(cont >= 2){
         for(int i = 0; i < MAXENEMY; i++){
@@ -60,6 +68,7 @@ void UpdateEnemy(){
                     lista_enemy[i].list_index = 2;
                 else
                     lista_enemy[i].list_index = 1;
+                // por fim, atualiza o sprite atual
                 lista_enemy[i].sprite = lista_sprite_enemy[lista_enemy[i].list_index];
                 cont = 0;
             }

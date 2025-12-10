@@ -7,15 +7,14 @@
 #include "../include/menu.h"
 #include "../include/mapa.h"
 
-
-
 //Inicia variaveis
-PLAYER jogador; //Variavel do player, nosso jogador
+PLAYER jogador, backup; //Variavel do player, nosso jogador
 Color background_color = { 45, 50, 184, 255 }; //Variavel Color da cor de fundo(azul escuro)
-Color pause_color = {80, 80, 90, 200}; //Variavel Color da cor do pause, cinza meio transparente
+
 PROJECTILE list_projectile[MAXPROJECTILE] = {0}; //Inicia lista de projetis, com numero maximo
-int pause = 0; //Inicia variavel pause como 0, desativada
+int pause, game_over, game_win;//Declara variaveis para controlar jogo
 int game_estate = -1; //inicia variavel do game_estate como -1, ou seja, na tela inicial
+
 
 void RunGame(){
     //Inicia Jogo
@@ -31,11 +30,15 @@ void RunGame(){
     while(!WindowShouldClose() && !sair){
 
         //Compara o game_estate com os numeros, para mudar as telas
-        switch (game_estate){
+        switch(game_estate){
             //Quando game_estate = -1, Apresenta tela inicial
             case -1:HomeScreen();
-                    if(IsKeyPressed(KEY_ENTER)) // Quando Enter é pressionado, game_estate vira 0
+                    if(IsKeyPressed(KEY_ENTER)){ // Quando Enter é pressionado, game_estate vira 0
                         game_estate = 0;
+                        game_over = 0; //Inicializa variaveis essenciais para o jogo funcionar
+                        game_win = 0;
+                        pause = 0;
+                    }
                     break;
             //Quando game_estate = 0, apresenta o menu
             case 0:if(!controller){ //Quando variavel controller é 0, Inicia Menu, será rodado apenas uma vez pois controller sera adicionado 1
@@ -52,6 +55,7 @@ void RunGame(){
                         InitGame();
                         InitProjectileConstant();
                         InitSpriteEnemy();
+                        InitFuelSprite();
                         controller--;
                     }
                     DrawGame();
@@ -71,20 +75,10 @@ void RunGame(){
 
 }
 
-
 void InitGame(){
-    InitPlayer(&jogador);
+    InitPlayer(&jogador, &backup);
     InitMaps();
-    InitMapMatrix(lista_mapas[jogador.level - 1], &jogador);
-}
-
-void DrawPause(){
-    //Quando o enter é pressionado, pause fica ativo se esta inativo, e fica inativo se esta ativo
-    if(IsKeyPressed(KEY_ENTER))
-        pause = !pause;
-    //Desenha a caixa do Pause
-    if(pause)
-        DrawRectangle(50, 90, SCREEN_WIDTH - 100, SCREEN_HEIGHT - 160, pause_color);
+    InitLevel();
 }
 
 void DrawGame(){
@@ -93,23 +87,27 @@ void DrawGame(){
     BeginDrawing();
     ClearBackground(background_color);
 
-    //Desenha Jogador, projeteis e o HUD, e chama a função DrawPause, para verificar se esta ativo ou nao
-    DrawMap(lista_mapas[jogador.level - 1]);
+    //Desenha Jogador, projeteis, inimigos, gasolina e o HUD, e chama a função DrawPause, DrawGameOver e NextLevel, para verificar se estao ativos ou nao
+
+    DrawMap();
+    DrawFuel();
     DrawPlayer(jogador);
     DrawProjectile();
     DrawEnemy();
     ShowHud(jogador);
     DrawPause();
+    DrawGameOver();
+    NextLevel();
 
     //Para de desenhar
     EndDrawing();
 }
 
 void UpdateGame(){
-    //Se o jogo nao esta pausado, atualiza o jogo
+    //Se o jogo nao esta pausado, nao esta game over e nao esta game win, atualiza o jogo
     //Declara a variavel dt, variavel reponsavel por manter uma padronização de velocidade independente de FPS no jogo
     float dt;
-    if(!pause){
+    if(!pause && !game_over && !game_win){
         float dt = GetFrameTime();
 
         UpdatePlayer(&jogador, dt);
@@ -121,9 +119,9 @@ void UpdateGame(){
     }
 }
 
+//Checa as colisão gerais, entre projeteis, inimigos, mapa e posto de gasolina
 void CheckAllCollision(){
-
-    for(int i = 0; i < MAXENEMY; i++){
+    for(int i = 0; i < MAXENEMY; i++){ //Checa colisão entre inimigo e projetil, se sim, ambos somem e pontos do player aumentam
         if(lista_enemy[i].is_active){
             for(int j = 0; j < MAXPROJECTILE; j++){
                 if(list_projectile[j].is_active){
@@ -133,7 +131,7 @@ void CheckAllCollision(){
                         list_projectile[j].is_active = false;
                     }
                 }
-            }
+            }//Checa colisao entre player e inimigo, se sim, player perde uma vida e inimigo some
             if(CheckCollisionRecs(lista_enemy[i].hitbox, jogador.hitbox)){
                 jogador.lives--;
                 lista_enemy[i].is_active = false;
@@ -142,7 +140,7 @@ void CheckAllCollision(){
         }
     }
 
-    for(int i = 0; i < MAXPROJECTILE; i++){
+    for(int i = 0; i < MAXPROJECTILE; i++){ //Checa colisao entre projetil e mapa, se sim projetil some
         if(list_projectile[i].is_active){
             for(int linha = 0; linha < LINHA; linha++){
                 for(int coluna = 0; coluna < COLUNA; coluna++){
@@ -152,13 +150,22 @@ void CheckAllCollision(){
                     }
                 }
             }
+            for(int j = 0; j < MAXFUEL; j++){ //Checa colisao entre projetil e posto de gasolina, se sim, posto some e player ganha uns pontinhos
+                if(lista_fuel[j].is_active){
+                    if(CheckCollisionRecs(list_projectile[i].hitbox, lista_fuel[j].hitbox)){
+                        list_projectile[i].is_active = false;
+                        lista_fuel[j].is_active = false;
+                        jogador.points += 20;
+                    }
+                }
+            }
         }
     }
 }
 
-int CheckTerrainPlayer(int tipoMov, float old_x, float old_y){
-    for(int i = 0; i < LINHA; i++){
-        for(int j = 0; j < COLUNA; j++){
+int CheckTerrainPlayer(int tipoMov, float old_x, float old_y){ //Funcao especifica para checar colisao entre player e mapa, se tipo do movimento = 1, no eixo x, checa se a posx antiga
+    for(int i = 0; i < LINHA; i++){                            // é maior ou menor do que a beira da hitbox do mapa, dependendo do que for, nao deixa ir para um dos lados
+        for(int j = 0; j < COLUNA; j++){                       //Memsa coisa para movimento horizontal, movimento = 2
 
             TILE t = mapa_atual[i][j];
 

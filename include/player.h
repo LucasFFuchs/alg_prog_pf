@@ -2,17 +2,21 @@
 #define PLAYER_H_INCLUDED
 #include "raylib.h"
 
+#define INITIAL_SPEED_Y 120
+#define INITIAL_SPEED_X 400
+
 typedef struct {
     float posx, posy;
     float speed_x, speed_y;
-    int lives, points, level, fuel_quantity;
+    float fuel_quantity;
+    int lives, points, level;
 
     Rectangle hitbox;
     Texture2D sprite;
 
 }PLAYER;
 
-void InitPlayer(PLAYER *p);
+void InitPlayer(PLAYER *p, PLAYER *backup);
 
 void ShowHud(PLAYER p);
 

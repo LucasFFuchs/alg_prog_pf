@@ -144,39 +144,41 @@
 	"raylib.h"
 	<stdio.h>
 
-1765296893 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\src\button.c
+1765324278 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\src\button.c
 	"raylib.h"
 	<string.h>
 	"../include/button.h"
 	"../include/menu.h"
 
-1765296893 c:\users\admin\desktop\faculdade\c\alg_prog_pf\include\button.h
+1765324278 c:\users\admin\desktop\faculdade\c\alg_prog_pf\include\button.h
 	"raylib.h"
 
-1765296893 c:\users\admin\desktop\faculdade\c\alg_prog_pf\include\menu.h
+1765312683 c:\users\admin\desktop\faculdade\c\alg_prog_pf\include\menu.h
 	"game.h"
 
-1765296893 c:\users\admin\desktop\faculdade\c\alg_prog_pf\include\game.h
-	"projectile.h"
-	"button.h"
-	"enemy.h"
-	"mapa.h"
+1765326044 c:\users\admin\desktop\faculdade\c\alg_prog_pf\include\game.h
+	"../include/projectile.h"
+	"../include/button.h"
+	"../include/enemy.h"
+	"../include/mapa.h"
+	"../include/fuel.h"
+	"utils.h"
 	<stdio.h>
 
-1765296893 c:\users\admin\desktop\faculdade\c\alg_prog_pf\include\projectile.h
+1765319591 c:\users\admin\desktop\faculdade\c\alg_prog_pf\include\projectile.h
 	"player.h"
 
-1765296893 c:\users\admin\desktop\faculdade\c\alg_prog_pf\include\player.h
+1765312349 c:\users\admin\desktop\faculdade\c\alg_prog_pf\include\player.h
 	"raylib.h"
 
 1765296893 c:\users\admin\desktop\faculdade\c\alg_prog_pf\include\enemy.h
 	"raylib.h"
 
-1765296893 c:\users\admin\desktop\faculdade\c\alg_prog_pf\include\mapa.h
+1765312363 c:\users\admin\desktop\faculdade\c\alg_prog_pf\include\mapa.h
 	<stdio.h>
 	"player.h"
 
-1765296893 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\src\game.c
+1765328404 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\src\game.c
 	"raylib.h"
 	<stdio.h>
 	"../include/game.h"
@@ -186,18 +188,21 @@
 	"../include/menu.h"
 	"../include/mapa.h"
 
-1765296893 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\src\enemy.c
+1765310268 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\src\enemy.c
 	"raylib.h"
 	"../include/enemy.h"
 	"../include/game.h"
 
-1765296893 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\src\fuel.c
+1765311724 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\src\fuel.c
 	"raylib.h"
 	"../include/fuel.h"
+	"../include/game.h"
 
-1765296893 c:\users\admin\desktop\faculdade\c\alg_prog_pf\include\fuel.h
+1765311706 c:\users\admin\desktop\faculdade\c\alg_prog_pf\include\fuel.h
+	"raylib.h"
+	"player.h"
 
-1765296893 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\src\mapa.c
+1765328887 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\src\mapa.c
 	"raylib.h"
 	<stdio.h>
 	"../include/mapa.h"
@@ -206,20 +211,29 @@
 1765296893 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\src\main.c
 	"../include/game.h"
 
-1765296893 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\src\player.c
+1765317607 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\src\player.c
 	"raylib.h"
 	"../include/player.h"
 	"../include/projectile.h"
 	"../include/game.h"
 	"../include/mapa.h"
 
-1765296893 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\src\menu.c
+1765324307 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\src\menu.c
 	"raylib.h"
 	"../include/menu.h"
 	"../include/button.h"
 
-1765296893 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\src\projectile.c
+1765319598 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\src\projectile.c
 	"raylib.h"
 	"../include/projectile.h"
 	"../include/game.h"
+
+1765327269 c:\users\admin\desktop\faculdade\c\alg_prog_pf\include\utils.h
+	"button.h"
+	"game.h"
+	"mapa.h"
+	"raylib.h"
+
+1765331306 source:c:\users\admin\desktop\faculdade\c\alg_prog_pf\src\utils.c
+	"../include/utils.h"
 

@@ -2,6 +2,7 @@
 #define MENU_H_INCLUDED
 
 #include "game.h"
+#define MAXBUTTON 4
 
 extern int game_estate;
 extern BUTTON lista_botoes[4];
