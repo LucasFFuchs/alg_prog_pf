@@ -6,13 +6,14 @@
 #include "../include/button.h"
 #include "../include/menu.h"
 #include "../include/mapa.h"
+#include "../include/ranking.h"
 
 //Inicia variaveis
 PLAYER jogador, backup; //Variavel do player, nosso jogador
 Color background_color = { 45, 50, 184, 255 }; //Variavel Color da cor de fundo(azul escuro)
 
 PROJECTILE list_projectile[MAXPROJECTILE] = {0}; //Inicia lista de projetis, com numero maximo
-int pause, game_over, game_win;//Declara variaveis para controlar jogo
+int pause, game_over, game_win, restart_cont, jogou, esc = 0;//Declara variaveis para controlar jogo
 int game_estate = -1; //inicia variavel do game_estate como -1, ou seja, na tela inicial
 
 
@@ -38,6 +39,9 @@ void RunGame(){
                         game_over = 0; //Inicializa variaveis essenciais para o jogo funcionar
                         game_win = 0;
                         pause = 0;
+                        restart_cont = 0;
+                        arq_cont = 0;
+                        jogou = 0;
                     }
                     break;
             //Quando game_estate = 0, apresenta o menu
@@ -57,10 +61,15 @@ void RunGame(){
                         InitSpriteEnemy();
                         InitFuelSprite();
                         controller--;
+                        fuel_loss = 10;
                     }
                     DrawGame();
                     UpdateGame();
                     break;
+            case 2:DrawRanking();
+                   break;
+            case 3:DrawWriteName();
+                   break;
             case 4:
             //Quando game_estate = 4, sai do jogo, muda a variavel de controle sair
                 sair = 1;
