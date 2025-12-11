@@ -18,5 +18,4 @@ void InitLevel();
 bool NextLevel();
 void ResetLevel();
 
-
 #endif // UTILS_H_INCLUDED

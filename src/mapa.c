@@ -84,12 +84,6 @@ void InitMapMatrix(FILE *arq_map, PLAYER *p, PLAYER *backup){
     }
     rewind(arq_map);
     flag = 0;
-
-    for(int linha = 0; linha < LINHA; linha++){
-        for(int coluna = 0; coluna < COLUNA; coluna++)
-            printf("%c", mapa_atual[linha][coluna].tipo);
-        printf("\n");
-    }
 }
 
 // DrawMap() desenha o mapa atual na tela.

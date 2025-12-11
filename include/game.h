@@ -30,6 +30,8 @@ extern PROJECTILE list_projectile[MAXPROJECTILE];
 extern ENEMY lista_enemy[MAXENEMY];
 extern Texture2D lista_sprite_enemy[MAX_ENEMY_SPRITES];
 extern FUEL lista_fuel[MAXFUEL];
+extern int restart_cont;
+extern int jogou;
 
 
 

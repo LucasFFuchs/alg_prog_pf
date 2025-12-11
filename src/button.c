@@ -23,11 +23,10 @@ BUTTON InitButton(int posx, int posy, int font_size, char text[], int option, Co
 
 // nesta funcao criamos os botoes que fazem parte da tela inicial do jogo
 void LoadButtons(BUTTON lista_botoes[]){
-    int x = 250, size = 70;
+    int x = 200, size = 110;
     lista_botoes[0] = InitButton(x, 150, size, "Novo Jogo", 1, YELLOW);
-    lista_botoes[1] = InitButton(x, 300, size, "Carregar Jogo", 1, YELLOW);
-    lista_botoes[2] = InitButton(x, 450, size, "Ranking", 1, YELLOW);
-    lista_botoes[3] = InitButton(x, 600, size, "Sair", 4, YELLOW);
+    lista_botoes[1] = InitButton(x, 350, size, "Ranking", 2, YELLOW);
+    lista_botoes[2] = InitButton(x, 550, size, "Sair", 4, YELLOW);
 }
 
 // aqui vem o desenho dos botoes do jogs (botoes esses criados no bloco anterior de codigo)
